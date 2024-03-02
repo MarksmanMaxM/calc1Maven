@@ -1,5 +1,6 @@
 package com.sky.calculator.controller;
 
+import com.sky.calculator.controller.Exceptions.DivideZeroException;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -23,8 +24,9 @@ public class CalculateServiceImpl implements CalculateService {
             case "/":
                 if (b != 0) {
                     result = a / b;
-                    break;}
-                else {break;}
+                    break;
+                    }
+                else {throw new DivideZeroException("Деление на 0 запрещено!");}
 
         }
         return result;
